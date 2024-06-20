@@ -6,8 +6,7 @@ import { HeaderComponent } from '../../shared/header/header.component';
   selector: 'app-faq',
   standalone: true,
   imports: [FooterComponent, HeaderComponent ],
-  templateUrl: './faq.component.html',
-  styleUrl: './faq.component.css'
+  templateUrl: './faq.component.html'
 })
 export default class FaqComponent {
 
