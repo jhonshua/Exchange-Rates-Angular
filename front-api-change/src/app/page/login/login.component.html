@@ -5,7 +5,7 @@
 <div
   class="flex min-h-screen items-center justify-center bg-white dark:bg-gray-950 p-12"
 >
-<form (ngSubmit)="onSubmit()">
+<form >
     <div
       class="max-w-sm rounded-3xl bg-gradient-to-b from-sky-300 to-purple-500 p-px dark:from-gray-800 dark:to-transparent"
     >
@@ -52,6 +52,7 @@
 
           <button
             class="h-9 px-3 w-full bg-blue-600 hover:bg-blue-700 active:bg-blue-800 focus:bg-blue-700 transition duration-500 rounded-md text-white"
+            (click)="login()"
             type="submit"
             >
             Signin

@@ -7,6 +7,6 @@ export const routes: Routes = [
   { path: 'faq',title: 'FAQ', loadComponent: () => import('./page/faq/faq.component') }, // FAQ
   {path: 'login',title: 'Loadin',loadComponent: () => import('./page/login/login.component')},//login
   { path: 'registro',title: 'Registro', loadComponent: () => import('./page/register/register.component') }, // Registro
-
+  { path: 'dasboard',title: 'dasboard', loadComponent: () => import('./page/register/register.component') }, // Registro
 ];
 
