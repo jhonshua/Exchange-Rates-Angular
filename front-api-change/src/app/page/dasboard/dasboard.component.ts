@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './dasboard.component.html',
   styleUrl: './dasboard.component.css'
 })
-export class DasboardComponent {
+export default class DasboardComponent {
 
 }
