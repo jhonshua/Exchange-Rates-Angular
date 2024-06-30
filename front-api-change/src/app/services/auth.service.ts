@@ -8,6 +8,9 @@ import { Observable, tap } from 'rxjs';
 })
 
 export class AuthService {
+  static isAuthenticated() {
+    throw new Error('Method not implemented.');
+  }
 
 //path API
   private LOGIN_URL = 'http://localhost:5000/auth';
@@ -33,7 +36,12 @@ export class AuthService {
   }
 
   private getToken(): string | null {
+    if(typeof window !== 'undefined'){
     return localStorage.getItem(this.tokenKey);
+    }else{
+      return null
+    }
+
   }
 
   isAuthenticated(): boolean {
