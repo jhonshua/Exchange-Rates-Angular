@@ -14,24 +14,21 @@ import { CommonModule } from '@angular/common';
   templateUrl: './login.component.html',
 })
 export default class LoginComponent {
-onSubmit() {
-throw new Error('Method not implemented.');
-}
+
+  onSubmit() {
+    throw new Error('Method not implemented.');
+  }
 
   email: string = '';
   password: string = '';
 
-  constructor(private authService: AuthService, private router: Router) {
-
-  }
+  constructor(private authService: AuthService, private router: Router) {}
 
   login(): void {
-
     this.authService.login(this.email, this.password).subscribe({
       next: () => this.router.navigate(['/dasboard']),
       error: (err) => console.error('login failed', err)
     })
-
   }
 
 }
