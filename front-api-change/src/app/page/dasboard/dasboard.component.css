@@ -112,6 +112,14 @@
   .sidebar:hover {
       width: 16rem;
   }
+
+  .modalOk {
+    position: fixed; /* Make the modal fixed-position */
+    top: 2rem; /* Adjust the top position as needed (2rem for slight spacing) */
+    right: 2rem;  /* Position the right at 2rem for top-right corner */
+    z-index: 999; /* Set a high z-index to ensure it appears above other elements */
+  }
+
   @media only screen and (min-width: 768px) {
       .header-right {
           width: calc(100% - 16rem);

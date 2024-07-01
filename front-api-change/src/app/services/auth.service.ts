@@ -2,30 +2,33 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
+import { User } from '../interfaces/user';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class AuthService {
+
   static isAuthenticated() {
     throw new Error('Method not implemented.');
   }
 
-//path API
+  //path API
   private LOGIN_URL = 'http://localhost:5000/auth';
   private tokenKey = 'authToken'
+  private userData = 'userData'
 
-//constructor you are injecting two dependencies
+  //constructor you are injecting two dependencies
   constructor(private HttpClient: HttpClient, private router: Router) { }
 
-//methods
-
+  //methods
   login(email: string, password: string): Observable<any> {
     return this.HttpClient.post<any>(this.LOGIN_URL, { email, password }).pipe(
       tap((response) => {
         if (response.accessToken) {
-          this.setToken(response.accessToken)
+          this.setToken(response.accessToken);
+          this.setUserData(response.user); // Guardar datos del usuario
         }
       })
     )
@@ -35,13 +38,16 @@ export class AuthService {
     localStorage.setItem(this.tokenKey, token);
   }
 
+  private setUserData(userData: User): void {
+    localStorage.setItem(this.userData, JSON.stringify(userData));
+  }
+
   private getToken(): string | null {
-    if(typeof window !== 'undefined'){
-    return localStorage.getItem(this.tokenKey);
-    }else{
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem(this.tokenKey);
+    } else {
       return null
     }
-
   }
 
   isAuthenticated(): boolean {
@@ -49,16 +55,15 @@ export class AuthService {
     if (!token) {
       return false;
     }
-
     const payload = JSON.parse(atob(token.split('.')[1]));
-
     const exp = payload.exp * 1000;
     return Date.now() < exp;
   }
 
   logout(): void {
     localStorage.removeItem(this.tokenKey);
-    this.router.navigate(['/login'])
+    localStorage.removeItem(this.userData); // Eliminar datos del usuario
+    this.router.navigate(['/login']);
   }
 
 }
