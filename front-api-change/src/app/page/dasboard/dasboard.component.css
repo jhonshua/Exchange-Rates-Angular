@@ -120,6 +120,8 @@
     z-index: 999; /* Set a high z-index to ensure it appears above other elements */
   }
 
+
+
   @media only screen and (min-width: 768px) {
       .header-right {
           width: calc(100% - 16rem);

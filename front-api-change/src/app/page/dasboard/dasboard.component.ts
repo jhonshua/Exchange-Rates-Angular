@@ -16,15 +16,14 @@ import { ModalOkComponent } from '../../shared/modalOk/modalOk.component';
 export default class DasboardComponent {
 
   showModal = false;
-  apiKeys: string = "ho0la es una prueba";
+  apiKeys: string = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  currentDate: Date = new Date();
+
   constructor(
     private authService: AuthService,
     private apiKeyService: ApiKeyService
   ) {}
 
-  ngOnInit() {
-    this.getApiKey();
-  }
 
 // methods
   logout(): void {
@@ -38,6 +37,13 @@ export default class DasboardComponent {
         this.apiKeys = apiKeyResponse.apiKey;
       }
     );
+  }
+
+  getCurrentMonth(): string {
+    const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+      'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+    const currentMonthIndex = this.currentDate.getMonth(); // Get current month index (0-11)
+    return months[currentMonthIndex]; // Return the month name from the array
   }
 
 }
