@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -9,6 +10,10 @@ import { Component } from '@angular/core';
 
 })
 export class HeaderComponent {
+
+  constructor(
+    private authService: AuthService,
+  ) {}
 
   public isAuth: boolean = false; // Initialize with false
 
@@ -20,5 +25,13 @@ export class HeaderComponent {
       this.isAuth = false;
     }
   }
+
+  logout(): void {
+    this.authService.logout();
+  }
+
+
+
+
 }
 

@@ -15,6 +15,7 @@ export class AuthService {
   }
 
   //path API
+  private loginSuccess:boolean = false;
   private LOGIN_URL = 'http://localhost:5000/auth';
   private authToken = 'authToken'
   private userData = 'userData'
@@ -64,6 +65,15 @@ export class AuthService {
     localStorage.removeItem(this.authToken);
     localStorage.removeItem(this.userData); // Eliminar datos del usuario
     this.router.navigate(['/login']);
+  }
+
+
+  setLoginSuccess(success: boolean): void {
+    this.loginSuccess = success;
+  }
+
+  isLoginSuccessful(): boolean {
+    return this.loginSuccess;
   }
 
 }

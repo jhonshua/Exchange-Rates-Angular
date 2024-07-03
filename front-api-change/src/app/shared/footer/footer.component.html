@@ -11,11 +11,16 @@
           This is an api created with Express and Mongoose db on the backend and Angular on the frontend, for non-commercial purposes by developer Julio Cesar Llinas.
         </h5>
         <div class="mt-6 lg:mb-0 mb-6">
-          <button class="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" >
-            <i class="fab fa-twitter"></i></button>
-          <button class="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" >
-            <i class="fab fa-dribbble"></i></button>
-          <button class="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" >
+          <button type="button" class="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+          (click)="openLinkInNewTab('https://x.com/LlinasJulio')">
+          <i class="fab fa-twitter"></i>
+          </button>
+          <button type="button" class="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+          (click)="openLinkInNewTab('https://www.linkedin.com/in/julio-cesar-llinas-ba65a6127/')">
+          <i class="fab fa-dribbble"></i>
+          </button>
+          <button type="button" class="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+          (click)="openLinkInNewTab('https://github.com/jhonshua')">
             <i class="fab fa-github"></i>
           </button>
         </div>

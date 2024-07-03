@@ -15,6 +15,8 @@ import { Component } from '@angular/core';
 })
 export default class LoginComponent {
 
+
+
   onSubmit() {
     throw new Error('Method not implemented.');
   }
@@ -22,14 +24,21 @@ export default class LoginComponent {
   email: string = '';
   password: string = '';
 
+
+
   constructor(private authService: AuthService, private router: Router) {}
+
 
   login(): void {
     this.authService.login(this.email, this.password).subscribe({
-      next: () => this.router.navigate(['/dasboard']),
+      next: () =>{
+        this.authService.setLoginSuccess(true);
+        this.router.navigate(['/dasboard']);
+      } ,
       error: (err) => console.error('login failed', err)
     })
   }
+
 
 }
 

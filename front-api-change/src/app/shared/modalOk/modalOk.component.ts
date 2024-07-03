@@ -1,24 +1,15 @@
-import { Component, HostListener } from '@angular/core';
-import { EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-modalOk',
-  standalone: true,
-  imports: [],
+  selector: 'app-material-dialog',
   templateUrl: './modalOk.component.html',
+
 })
-
-
 export class ModalOkComponent {
+  constructor(public dialogRef: MatDialogRef<ModalOkComponent>) {}
 
-  @Output() closeModal = new EventEmitter<void>(); // Evento para notificar al padre
-
-  @HostListener('click', ['$event'])
-  handleClick(event: any) {
-    // Verifique si el objetivo del clic es el elemento del botón "X"
-    if (event.target.classList.contains('w-max')) {
-      this.closeModal.emit(); // Emitir evento de cierre
-    }
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 }
-
