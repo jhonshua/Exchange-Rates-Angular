@@ -16,7 +16,7 @@ export class AuthService {
 
   //path API
   private LOGIN_URL = 'http://localhost:5000/auth';
-  private tokenKey = 'authToken'
+  private authToken = 'authToken'
   private userData = 'userData'
 
   //constructor you are injecting two dependencies
@@ -35,7 +35,7 @@ export class AuthService {
   }
 
   private setToken(token: string): void {
-    localStorage.setItem(this.tokenKey, token);
+    localStorage.setItem(this.authToken, token);
   }
 
   private setUserData(userData: User): void {
@@ -44,7 +44,7 @@ export class AuthService {
 
   private getToken(): string | null {
     if (typeof window !== 'undefined') {
-      return localStorage.getItem(this.tokenKey);
+      return localStorage.getItem(this.authToken);
     } else {
       return null
     }
@@ -61,7 +61,7 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem(this.tokenKey);
+    localStorage.removeItem(this.authToken);
     localStorage.removeItem(this.userData); // Eliminar datos del usuario
     this.router.navigate(['/login']);
   }
