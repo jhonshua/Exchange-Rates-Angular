@@ -5,6 +5,8 @@ import { HeaderComponent } from '../../shared/header/header.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalErrorComponent} from '../../shared/modalError/modalError.component';
 
 
 @Component({
@@ -15,30 +17,49 @@ import { Component } from '@angular/core';
 })
 export default class LoginComponent {
 
-
-
-  onSubmit() {
-    throw new Error('Method not implemented.');
-  }
-
   email: string = '';
   password: string = '';
+  errorMessage: string = '';
 
-
-
-  constructor(private authService: AuthService, private router: Router) {}
-
+  constructor(private authService: AuthService, private router: Router, private dialog: MatDialog) {}
 
   login(): void {
-    this.authService.login(this.email, this.password).subscribe({
+
+    const emailRegex = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
+
+    if (!this.email || !this.password) {
+      this.errorMessage = "Verify, data required,";
+      this.openErrorModal();
+      return;
+
+    }else if (this.password.length < 6 || this.password.length > 6){
+      this.errorMessage = "Verify your password 6 characters";
+      this.openErrorModal();
+      return;
+
+    } else if (!emailRegex.test(this.email)) {
+      this.errorMessage = "Verify your email, incorrect format";
+      this.openErrorModal();
+
+    }else{
+       this.authService.login(this.email, this.password).subscribe({
       next: () =>{
         this.authService.setLoginSuccess(true);
         this.router.navigate(['/dasboard']);
       } ,
-      error: (err) => console.error('login failed', err)
+      error: (err) =>{
+       console.error('login failed', err) ;
+       this.errorMessage = err.message;
+       this.openErrorModal();
+      }
     })
+    }
   }
 
-
+  openErrorModal(): void {
+    this.dialog.open(ModalErrorComponent, {
+      data: { errorMessage: this.errorMessage },
+    });
+  }
 }
 
