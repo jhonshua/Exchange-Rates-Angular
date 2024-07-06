@@ -4,7 +4,7 @@
 <div class="flex flex-row gap-8">
   <!-- Navegación lateral -->
   <div class="w-1/4 p-4">
-    <aside class="bg-gray-800 text-white w-64 min-h-screen p-4">
+    <aside class="fixed top-16.5 left-0 w-1/4 p-4 h-screen overflow-auto bg-gray-800 text-white">
       <nav>
         <div class="flex items-center justify-between p-2 hover:bg-gray-700">
           <div class="flex items-center">
@@ -19,9 +19,39 @@
         </div>
         <div class="flex items-center justify-between p-2 hover:bg-gray-700">
           <div class="flex items-center">
-            <span>Authentication</span>
+            <span>Quick Start Guide</span>
           </div>
         </div>
+
+        <div class="flex items-center justify-between p-2 hover:bg-gray-700">
+          <div class="flex items-center">
+            <span>Us dollar price</span>
+          </div>
+        </div>
+        <div class="flex items-center justify-between p-2 hover:bg-gray-700">
+          <div class="flex items-center">
+            <span>Euro price</span>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between p-2 hover:bg-gray-700">
+          <div class="flex items-center">
+            <span>Rublo price</span>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between p-2 hover:bg-gray-700">
+          <div class="flex items-center">
+            <span>National Banking System</span>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between p-2 hover:bg-gray-700">
+          <div class="flex items-center">
+            <span>Gold</span>
+          </div>
+        </div>
+
         <div class="flex items-center justify-between p-2 hover:bg-gray-700">
           <div class="flex items-center">
             <span>Cryptocurrency</span>
@@ -30,6 +60,7 @@
       </nav>
     </aside>
   </div>
+
   <div class="w-9/12 p-4">
     <div class="flex flex-col items-center">
       <div class="w-full bg-white p-4 rounded-md overflow-auto">
@@ -81,55 +112,135 @@
           you've confirmed your API Key is working, get familiar with the API by
           reading the rest of this API Reference and commence building your
           application!
-        </p>
+        </p><br>
+
         <!-- --------------------------------------------------------------------------------------->
-        <h1 class="text-3xl font-bold text-gray-900 mt-4 mb-2">auth</h1>
-        <br />
-        <div class="grid grid-cols-2 gap-4">
-          <div class="bg-gray-200 p-4">
-            <h1 class="text-2xl font-bold text-yellow-500">POST</h1>
-            <h4 class="font-bold">login</h4>
-            <h4 class="text-blue-500">
-              <a href="http://localhost:5000/auth"
-                >http://localhost:5000/auth</a
-              >
-            </h4>
-            <h4>Body raw (json)</h4>
-            <pre>{{ jsonData | json }}</pre>
-          </div>
-          <div class="bg-gray-200 p-4">
-            <h4 class="font-bold">auth 200 ok</h4>
-            <pre>{{ jsonOk | json }}</pre>
+
+        <div class=" mt-4 mb-4">
+          <h3 class="text-3xl font-bold text-gray-900 mt-4 mb-2">Us dollar price</h3>
+          <button class="accordion" (click)="expand(panel1)">Request URL:  http://localhost:5000/GetPrecioUsd/ ApiKey</button>
+          <div #panel1 class="panel">
+            <br />
+            <div class="grid grid-cols-2  gap-4">
+              <div class="bg-gray-200 p-4">
+                <h1 class="text-2xl font-bold text-green-500">GET</h1>
+                <h4 class="font-bold">GetPrecioUsd</h4>
+                <h6>Body raw (json)</h6>
+                <pre>{{ jsonBodyUsDolar | json }}</pre>
+              </div>
+              <div class="bg-gray-200 p-4">
+                <h4 class="font-bold">Status 200 ok</h4>
+                <pre>{{ jsonUsDolarResponse | json }}</pre>
+              </div>
+            </div>
           </div>
         </div>
+
         <!-- --------------------------------------------------------------------------------------->
-        <h1 class="text-3xl font-bold text-gray-900 mt-4 mb-2">auth</h1>
-        <br />
-        <div class="grid grid-cols-2 gap-4">
-          <div class="bg-gray-200 p-4">
-            <h1 class="text-2xl font-bold text-green-500">GET</h1>
-            <h4 class="font-bold">GetPrecioUsd</h4>
-            <h4 class="text-blue-500">
-              <a href="http://localhost:5000/auth"
-                >http://localhost:5000/auth</a
-              >
-            </h4>
-            <h4>Body raw (json)</h4>
-            <pre>{{ jsonData | json }}</pre>
-          </div>
-          <div class="bg-gray-200 p-4">
-            <h4 class="font-bold">auth 200 ok</h4>
-            <pre>{{ jsonOk | json }}</pre>
+
+        <div class=" mt-4 mb-4">
+          <h3 class="text-3xl font-bold text-gray-900 mt-4 mb-2">Euro price</h3>
+          <button class="accordion" (click)="expand(panel2)">Request URL:  http://localhost:5000/GetPrecioEur/ ApiKey</button>
+          <div #panel2 class="panel">
+            <br />
+            <div class="grid grid-cols-2  gap-4">
+              <div class="bg-gray-200 p-4">
+                <h1 class="text-2xl font-bold text-green-500">GET</h1>
+                <h4 class="font-bold">GetPrecioEur</h4>
+                <h6>Body raw (json)</h6>
+                <pre>{{ jsonBodyEurodolar | json }}</pre>
+              </div>
+              <div class="bg-gray-200 p-4">
+                <h4 class="font-bold">Status 200 ok</h4>
+                <pre>{{ jsonEuroResponse | json }}</pre>
+              </div>
+            </div>
           </div>
         </div>
         <!-- ---------------------------------------------------------------------------------------->
-        <h1>servicios</h1>
-        <br />
 
-        <div class="grid grid-cols-2 gap-4">
-          <div class="bg-gray-200 p-4">Columna 1</div>
-          <div class="bg-gray-200 p-4">Columna 2</div>
+        <div class=" mt-4 mb-4">
+          <h3 class="text-3xl font-bold text-gray-900 mt-4 mb-2">Rublo price</h3>
+          <button class="accordion" (click)="expand(panel3)">Request URL:  http://localhost:5000/GetPrecioRub/ ApiKey</button>
+          <div #panel3 class="panel">
+            <br />
+            <div class="grid grid-cols-2  gap-4">
+              <div class="bg-gray-200 p-4">
+                <h1 class="text-2xl font-bold text-green-500">GET</h1>
+                <h4 class="font-bold">GetPrecioRub</h4>
+                <h6>Body raw (json)</h6>
+                <pre>{{ jsonBodyRublo  | json }}</pre>
+              </div>
+              <div class="bg-gray-200 p-4">
+                <h4 class="font-bold">Status 200 ok</h4>
+                <pre>{{ jsonRubloResponse | json }}</pre>
+              </div>
+            </div>
+          </div>
         </div>
+        <!-- --------------------------------------------------------------------------------------->
+
+        <div class=" mt-4 mb-4">
+          <h3 class="text-3xl font-bold text-gray-900 mt-4 mb-2">National System Bank price</h3>
+          <button class="accordion" (click)="expand(panel4)">Request URL:  http://localhost:5000/GetPrecioNationals/ ApiKey</button>
+          <div #panel4 class="panel">
+            <br />
+            <div class="grid grid-cols-2  gap-4">
+              <div class="bg-gray-200 p-4">
+                <h1 class="text-2xl font-bold text-green-500">GET</h1>
+                <h4 class="font-bold">GetPrecioNational</h4>
+                <h6>Body raw (json)</h6>
+                <pre>{{ jsonBodytPrecioNational  | json }}</pre>
+              </div>
+              <div class="bg-gray-200 p-4">
+                <h4 class="font-bold">Status 200 ok</h4>
+                <pre>{{ jsontPrecioNationalResponse | json }}</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- --------------------------------------------------------------------------------------->
+        <div class=" mt-4 mb-4">
+          <h3 class="text-3xl font-bold text-gray-900 mt-4 mb-2">Gold price</h3>
+          <button class="accordion" (click)="expand(panel5)">Request URL:  http://localhost:5000/GetPrecioNationals/ ApiKey</button>
+          <div #panel5 class="panel">
+            <br />
+            <div class="grid grid-cols-2  gap-4">
+              <div class="bg-gray-200 p-4">
+                <h1 class="text-2xl font-bold text-green-500">GET</h1>
+                <h4 class="font-bold">GetPrecioNational</h4>
+                <h6>Body raw (json)</h6>
+                <pre>{{ jsonBodyRublo  | json }}</pre>
+              </div>
+              <div class="bg-gray-200 p-4">
+                <h4 class="font-bold">Status 200 ok</h4>
+                <pre>{{ jsonRubloResponse | json }}</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- --------------------------------------------------------------------------------------->
+        <div class=" mt-4 mb-4">
+          <h3 class="text-3xl font-bold text-gray-900 mt-4 mb-2">Crypto price</h3>
+          <button class="accordion" (click)="expand(panel6)">Request URL:  http://localhost:5000/GetPrecioNationals/ ApiKey</button>
+          <div #panel6 class="panel">
+            <br />
+            <div class="grid grid-cols-2  gap-4">
+              <div class="bg-gray-200 p-4">
+                <h1 class="text-2xl font-bold text-green-500">GET</h1>
+                <h4 class="font-bold">GetPrecioNational</h4>
+                <h6>Body raw (json)</h6>
+                <pre>{{ jsonBodyRublo  | json }}</pre>
+              </div>
+              <div class="bg-gray-200 p-4">
+                <h4 class="font-bold">Status 200 ok</h4>
+                <pre>{{ jsonRubloResponse | json }}</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- --------------------------------------------------------------------------------------->
+
       </div>
     </div>
   </div>

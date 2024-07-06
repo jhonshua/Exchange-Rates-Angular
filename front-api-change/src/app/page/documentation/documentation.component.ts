@@ -1,49 +1,45 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { FooterComponent } from '../../shared/footer/footer.component';
 import { HeaderComponent } from '../../shared/header/header.component';
 import { CommonModule } from '@angular/common';
+import {
+  jsonBodyUsDolar,
+  jsonUsDolarResponse,
+  jsonBodyEuro,
+  jsonEuroResponse,
+  jsonBodyRublo,
+  jsonRubloResponse,
+  jsonBodytPrecioNational,
+  jsontPrecioNationalResponse
+} from './data';
+
+
 
 @Component({
   selector: 'app-documentation',
   standalone: true,
   imports: [CommonModule,FooterComponent, HeaderComponent],
   templateUrl: './documentation.component.html',
-  styleUrl: './documentation.component.css'
+  styleUrl: './documentation.component.css',
 })
 export default class DocumentationComponent {
 
-  public jsonData = {  // Define the JSON data here
-    "email": "julio.llinas@gmail.com",
-    "password": "123456"
-  };
 
-  public jsonInvalidEmail = {
-    "message": "Invalid email or password"
-  }
+  public jsonBodyUsDolar = jsonBodyUsDolar
+  public jsonUsDolarResponse = jsonUsDolarResponse
+  public jsonBodyEurodolar = jsonBodyEuro
+  public jsonEuroResponse = jsonEuroResponse
+  public jsonBodyRublo = jsonBodyRublo
+  public jsonRubloResponse = jsonRubloResponse
+  public jsonBodytPrecioNational = jsonBodytPrecioNational
+  public jsontPrecioNationalResponse = jsontPrecioNationalResponse
 
-  public jsonOk= {
-    "accessToken": "eyJhbGciOiJ...",
-    "authentication": {
-      "strategy": "local"
-    },
-    "user": {
-      "_id": "666301a435ef4793d...",
-      "username": "julio12345",
-      "email": "julio.llinas@gmail.com",
-      "full_name": "julio llinas",
-      "rol_id": "65186df457796b5ea2c6e...",
-      "ability": [
-        {
-          "action": "read",
-          "subject": "ACL"
-        },
-        {
-          "action": "read",
-          "subject": "Auth"
-        }
-      ]
-    }
-  }
-  constructor() {}
+  expand(event: { style: { display: string; }; }){
+    if (event.style.display === "block") {
+      event.style.display = "none";
+  } else {
+        event.style.display = "block";
+   }
+}
 
 }
