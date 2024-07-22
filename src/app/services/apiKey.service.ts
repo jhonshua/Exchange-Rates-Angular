@@ -34,7 +34,7 @@ export class ApiKeyService {
   getApiKeycall() {
     const accessToken = this.getAccessToken();
     const body = this.getUserId()
-    const url = 'https://exchange-rates-api-express.onrender.com';
+    const url = 'https://exchange-rates-api-express.onrender.com/asignar-clave-api';
 
     const options = {
       headers: {
