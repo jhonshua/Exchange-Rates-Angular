@@ -16,7 +16,7 @@ export class AuthService {
 
   //path API
   private loginSuccess:boolean = false;
-  private LOGIN_URL = 'http://localhost:5000/auth';
+  private LOGIN_URL = 'https://exchange-rates-api-express.onrender.com/auth';
   private authToken = 'authToken'
   private userData = 'userData'
 

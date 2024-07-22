@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalErrorComponent} from '../../shared/modalError/modalError.component';
+import { environment } from '../../../environments/environment.development'
 
 
 @Component({
@@ -20,6 +21,8 @@ export default class LoginComponent {
   email: string = '';
   password: string = '';
   errorMessage: string = '';
+  baseUrl: any = environment.apiUrl;
+
 
   constructor(private authService: AuthService, private router: Router, private dialog: MatDialog) {}
 

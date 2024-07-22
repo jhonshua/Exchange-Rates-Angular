@@ -8,7 +8,7 @@ import { Observable, tap } from 'rxjs';
 
 export class UserService {
 
-  private apiUrl = 'http://localhost:5000/register'; // Cambia la URL según tu configuración
+  private apiUrl = 'https://exchange-rates-api-express.onrender.com/register'; // Cambia la URL según tu configuración
 
 
   constructor(private HttpClient: HttpClient) { }

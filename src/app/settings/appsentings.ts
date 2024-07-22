@@ -1,3 +1,3 @@
 export const appsentting = {
-  apiUrl: "http://localhost:5000"
+  apiUrl: "https://exchange-rates-api-express.onrender.com"
 }

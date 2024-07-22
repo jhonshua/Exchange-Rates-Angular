@@ -3,6 +3,8 @@ import { AuthService } from '../../services/auth.service';
 import { ApiKeyService } from '../../services/apiKey.service'
 import { MatDialog } from '@angular/material/dialog';
 import { ModalOkComponent } from '../../shared/modalOk/modalOk.component';
+import { environment } from '../../../environments/environment.development'
+
 
 @Component({
   selector: 'app-dasboard',
@@ -15,6 +17,7 @@ import { ModalOkComponent } from '../../shared/modalOk/modalOk.component';
 export default class DasboardComponent {
 
   showModal = false;
+  baseUrl: any = environment.apiUrl;
   apiKeys: string = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
   currentDate: Date = new Date();
 
